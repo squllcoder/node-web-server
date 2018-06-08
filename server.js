@@ -47,13 +47,7 @@ app.use((req, res, next) => {
 // 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (req, res, next) => {
-	res.render('home.hbs', {
-		pageTitle: 'Home Page',
-		welcomeMessage: 'Welcome to my website'
-	});
 
-});
 
 app.get('/about', (req, res, next) => {
 	// res.write('About Page');
@@ -68,6 +62,21 @@ app.get('/about', (req, res, next) => {
 // 	res.write('Hello World');
 // 	res.end();
 // });
+
+
+app.get('/projects', (req, res, next) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Projects'
+	});
+});
+
+app.get('/', (req, res, next) => {
+	res.render('home.hbs', {
+		pageTitle: 'Home Page',
+		welcomeMessage: 'Welcome to my website'
+	});
+
+});
 
 app.get('/bad', (req, res) => {
 	res.send({
